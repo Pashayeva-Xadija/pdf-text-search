@@ -1,83 +1,87 @@
-🚀 PDFTextSearch — Full-text Search on PDF Documents
-Spring Boot + Apache Tika + Elasticsearch
+# 🚀 PDFTextSearch — Full-text Search on PDF Documents
+**Spring Boot + Apache Tika + Elasticsearch**
 
 PDFTextSearch is a backend service built with Spring Boot that allows users to upload PDF documents, extract their textual content using Apache Tika, and index the extracted text into Elasticsearch to provide fast full-text search functionality.
 
-This system enables Google-like keyword searching across the contents of PDF files.
+This system enables **Google-like keyword searching** across the contents of PDF files.
 
-............................................................................................
+---
 
-📌 Project Summary
+## 📌 Project Summary
 
-Feature                            	Description
-📄 PDF Upload	                    Upload and store PDF files
-✂️ Text Extraction                 	Extract text using Apache Tika
-🔎 Elasticsearch Indexing          	Store indexed text for full-text search
-🔍 Full-Text Search	                Search inside PDF contents by keywords
-⚡ Async Processing               	Upload → extract → index runs asynchronously
-📑 Pagination	                    Paginated search results
-🗄 PostgreSQL                    	Store PDF metadata
+| Feature                    | Description                                  |
+|---------------------------|----------------------------------------------|
+| 📄 PDF Upload             | Upload and store PDF files                   |
+| ✂️ Text Extraction        | Extract text using Apache Tika               |
+| 🔎 Elasticsearch Indexing | Store indexed text for full-text search      |
+| 🔍 Full-Text Search       | Search inside PDF contents by keywords       |
+| ⚡ Async Processing       | Upload → extract → index runs asynchronously |
+| 📑 Pagination             | Paginated search results                     |
+| 🗄 PostgreSQL             | Store PDF metadata                           |
 
-...........................................................................................
+---
 
-✔️ Requirements Implemented
+## ✔️ Requirements Implemented
 
-Requirement	                Description	                                  Status
-PDF Upload              	Accept PDF files via REST API	              ✔️ Implemented
-Text Extraction         	Use Apache Tika to read PDF content	          ✔️ Implemented
-Elasticsearch Indexing	    Save extracted text to ES index            	  ✔️ Implemented
-Full-Text Search	        Query PDF contents using search API	          ✔️ Implemented
-Pagination	                Paginated search responses	                  ✔️ Implemented
-Async Processing         	PDF content processing is asynchronous	      ✔️ Implemented
-Elasticsearch Client	    Integrated via Spring Data Elasticsearch	  ✔️ Implemented
-PostgreSQL Storage	        Store document metadata	                      ✔️ Implemented
+| Requirement             | Description                                 | Status          |
+|-------------------------|---------------------------------------------|-----------------|
+| PDF Upload              | Accept PDF files via REST API              | ✅ Implemented  |
+| Text Extraction         | Use Apache Tika to read PDF content        | ✅ Implemented  |
+| Elasticsearch Indexing  | Save extracted text to ES index            | ✅ Implemented  |
+| Full-Text Search        | Query PDF contents using search API        | ✅ Implemented  |
+| Pagination              | Paginated search responses                 | ✅ Implemented  |
+| Async Processing        | PDF content processing is asynchronous     | ✅ Implemented  |
+| Elasticsearch Client    | Integrated via Spring Data Elasticsearch   | ✅ Implemented  |
+| PostgreSQL Storage      | Store document metadata                    | ✅ Implemented  |
 
-............................................................................................
+---
 
-                   🛠️ Tech Stack
+## 🛠️ Tech Stack
 
-Technology	                           Purpose
-Java 17+                     	       Backend
-Spring Boot 3.x	                       REST API
-PostgreSQL	                           Store metadata
-Apache Tika	                           Extract text from PDFs
-Elasticsearch 9.x	                   Full-text search engine
-Spring Data Elasticsearch	           Elasticsearch integration
-MapStruct	                           Mapping DTO ↔ Entity
-Lombok	                               Reduce boilerplate code
-Maven                              	   Build tool
+| Technology               | Purpose                      |
+|-------------------------|------------------------------|
+| Java 17+                | Backend                      |
+| Spring Boot 3.x         | REST API                     |
+| PostgreSQL              | Store PDF metadata           |
+| Apache Tika             | Extract text from PDFs       |
+| Elasticsearch 9.x       | Full-text search engine      |
+| Spring Data Elasticsearch | Elasticsearch integration |
+| MapStruct               | Mapping DTO ↔ Entity         |
+| Lombok                  | Reduce boilerplate code      |
+| Maven                   | Build tool                   |
 
-.............................................................................................
+---
 
-                    🏗️ System Architecture
+## 🏗️ System Architecture
+
+```text
 +---------------------------+
 |        Client / UI        |
 +-------------+-------------+
-|
-▼
-+-----------------------+
-|   Spring Boot API     |
-+-----------+-----------+
-|
-+------------------+------------------+
-|                                     |
-▼                                     ▼
-+--------------------+              +------------------------+
-|   File Storage     |              |   Apache Tika Engine   |
-|    (uploads/)      |              |  (Text Extraction)     |
-+--------------------+              +------------------------+
-|
-▼
+              |
+              ▼
++---------------------------+
+|      Spring Boot API      |
++-------------+-------------+
+              |
+    +------------------+------------------+
+    |                                     |
+    ▼                                     ▼
++--------------------+          +------------------------+
+|     File Storage   |          |   Apache Tika Engine   |
+|       (uploads/)   |          |    (Text Extraction)   |
++--------------------+          +------------------------+
+              |
+              ▼
 +--------------------------+
 |   Elasticsearch Index    |
 +--------------------------+
-|
-▼
+              |
+              ▼
 +--------------------------+
 |     Search API (ES)      |
 +--------------------------+
 
-...............................................................................................
 
 📂 Project Structure
 src/main/java/az/devlab/pdftextsearch

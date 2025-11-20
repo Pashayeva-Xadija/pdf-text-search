@@ -86,7 +86,7 @@ This system enables **Google-like keyword searching** across the contents of PDF
 
 ## 📂 Project Structure
 
-```
+
 src/main/java/az/devlab/pdftextsearch
 │
 ├── config/
@@ -100,7 +100,7 @@ src/main/java/az/devlab/pdftextsearch
 ├── service/
 ├── serviceimpl/
 └── util/
-```
+
 
 ---
 

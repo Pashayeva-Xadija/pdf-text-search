@@ -95,7 +95,6 @@ src/main/java/az/devlab/pdftextsearch
 ├── exception/
 ├── mapper/
 ├── model/
-│   └── document/
 ├── repository/
 ├── service/
 ├── serviceimpl/

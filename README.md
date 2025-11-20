@@ -222,18 +222,10 @@ PDFTextSearch is a fully functional backend service that:
 
 ---
 
-## 📬 Contact
-
-Made with ❤️ by **Xadija Pashayeva**
-
-
-All project requirements have been fully implemented.
-
 📬 Contact
 
 Made with  by Xadija Pashayeva
 
 📧 Email: xadijapashayeva@gmail.com
-🔗 LinkedIn: https://www.linkedin.com/in/xadija-pashayeva
 
-/in/xadija-pashayeva
+🔗 LinkedIn: https://www.linkedin.com/in/xadija-pashayeva/in/xadija-pashayeva

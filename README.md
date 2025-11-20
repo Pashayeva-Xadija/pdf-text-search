@@ -186,3 +186,11 @@ Handles large files asynchronously
 Stores metadata in PostgreSQL
 
 All project requirements have been fully implemented.
+
+📬 Contact
+
+Made with  by Xadija Pashayeva
+
+📧 Email: xadijapashayeva@gmail.com
+
+🔗 LinkedIn: https://www.linkedin.com/in/xadija-pashayeva

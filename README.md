@@ -83,7 +83,10 @@ This system enables **Google-like keyword searching** across the contents of PDF
 +--------------------------+
 
 
-📂 Project Structure
+
+## 📂 Project Structure
+
+```
 src/main/java/az/devlab/pdftextsearch
 │
 ├── config/
@@ -92,98 +95,137 @@ src/main/java/az/devlab/pdftextsearch
 ├── exception/
 ├── mapper/
 ├── model/
-│   ├── document/
+│   └── document/
 ├── repository/
 ├── service/
 ├── serviceimpl/
 └── util/
+```
 
-🔧 Setup Instructions
-1. Start Elasticsearch
-   cd elasticsearch-9.x/bin
-   .\elasticsearch.bat
+---
 
+## 🔧 Setup Instructions
 
-Verify:
+### **1️⃣ Start Elasticsearch**
+```bash
+cd elasticsearch-9.x/bin
+.\elasticsearch.bat
+```
 
+Verify in browser:
 https://localhost:9200
 
-2. Configure PostgreSQL
+---
 
-application.properties:
+### **2️⃣ Configure PostgreSQL**
 
+`application.properties`:
+```properties
 spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
 spring.datasource.username=postgres
 spring.datasource.password=12345
+```
 
-3. Run Backend
-   Via IntelliJ
+---
 
-Run the application normally.
+### **3️⃣ Run Backend**
 
-Or via Maven:
+**Via IntelliJ IDEA:**  
+Run `PdfTextSearchApplication`
+
+**Via Maven:**
+```bash
 mvn spring-boot:run
+```
 
-📤 API — Upload PDF
-POST /api/v1/pdfs/upload
-Body (form-data)
-Key	Type	Value
-file	File	PDF document
-Sample Response
-{
-"documentId": 1,
-"fileName": "example.pdf",
-"fileSize": 151474,
-"indexed": false,
-"uploadedAt": "2025-11-20T13:57:07",
-"message": "PDF uploaded successfully. Indexing continues asynchronously."
-}
+---
 
-🔎 API — Full-Text Search
-POST /api/v1/search
-Request Body
-{
-"query": "backend",
-"page": 0,
-"size": 10
-}
+## 📤 API — Upload PDF
 
-Response Example
-{
-"content": [
-{
-"id": "es_12345",
-"documentId": 1,
-"fileName": "example.pdf",
-"snippet": "... backend developer experience ...",
-"fileSize": 151474,
-"uploadedAt": "2025-11-20T13:57:07",
-"score": 1.42
-}
-],
-"page": 0,
-"size": 10,
-"totalElements": 1,
-"totalPages": 1
-}
+**POST** `/api/v1/pdfs/upload`  
+**Body:** multipart/form-data
 
-⚡ Bonus Features (Completed)
-Feature	Description	Status
-Async Processing	PDF extraction and indexing run in background	✔️
-Pagination	Search results are paginated	✔️
-📝 Conclusion
+| Key  | Type | Value         |
+|------|------|---------------|
+| file | File | PDF document  |
+
+**Sample Response:**
+```json
+{
+  "documentId": 1,
+  "fileName": "example.pdf",
+  "fileSize": 151474,
+  "indexed": false,
+  "uploadedAt": "2025-11-20T13:57:07",
+  "message": "PDF uploaded successfully. Indexing continues asynchronously."
+}
+```
+
+---
+
+## 🔎 API — Full-Text Search
+
+**POST** `/api/v1/search`
+
+**Request Body:**
+```json
+{
+  "query": "backend",
+  "page": 0,
+  "size": 10
+}
+```
+
+**Response Example:**
+```json
+{
+  "content": [
+    {
+      "id": "es_12345",
+      "documentId": 1,
+      "fileName": "example.pdf",
+      "snippet": "... backend developer experience ...",
+      "fileSize": 151474,
+      "uploadedAt": "2025-11-20T13:57:07",
+      "score": 1.42
+    }
+  ],
+  "page": 0,
+  "size": 10,
+  "totalElements": 1,
+  "totalPages": 1
+}
+```
+
+---
+
+## ⚡ Bonus Features (Completed)
+
+| Feature           | Description                                   | Status |
+|-------------------|-----------------------------------------------|--------|
+| Async Processing  | PDF extraction + indexing in background        | ✔️     |
+| Pagination        | Paginated search results                      | ✔️     |
+
+---
+
+## 📝 Conclusion
 
 PDFTextSearch is a fully functional backend service that:
 
-Extracts text from PDF files
+- Extracts text from PDF files
+- Indexes content into Elasticsearch
+- Supports full-text search
+- Handles large files asynchronously
+- Stores metadata in PostgreSQL
 
-Indexes content into Elasticsearch
+✔️ **All project requirements have been fully implemented.**
 
-Supports full-text search
+---
 
-Handles large files asynchronously
+## 📬 Contact
 
-Stores metadata in PostgreSQL
+Made with ❤️ by **Xadija Pashayeva**
+
 
 All project requirements have been fully implemented.
 
@@ -192,5 +234,6 @@ All project requirements have been fully implemented.
 Made with  by Xadija Pashayeva
 
 📧 Email: xadijapashayeva@gmail.com
-
 🔗 LinkedIn: https://www.linkedin.com/in/xadija-pashayeva
+
+/in/xadija-pashayeva

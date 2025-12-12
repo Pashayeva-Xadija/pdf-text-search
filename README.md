@@ -225,6 +225,4 @@ PDFTextSearch is a fully functional backend service that:
 
 Made with  by Xadija Pashayeva
 
-📧 Email: xadijapashayeva@gmail.com
 
-🔗 LinkedIn: https://www.linkedin.com/in/xadija-pashayeva/in/xadija-pashayeva
